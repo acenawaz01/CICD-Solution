@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request
+import requests
 
 app = Flask(__name__)
+
+# configure below credentials 
+JENKINS_URL = "http://localhost:8080/job/generic_build/buildWithParameters"
+JENKINS_USER_TOKEN = "1181329ec4cf7d254b73408e7ed8b22d4f"
+JENKINS_USER = "shariq"
 
 @app.route('/')
 def main():
@@ -16,8 +22,10 @@ def send():
         doSonarScan = request.form.getlist('sonar_scan')
         doEC2deploy = request.form.getlist('ec2_deploy')
 
-    result = doSonarScan
-    return render_template('app.html',result=result)
+    post_data = { JENKINS_USER : JENKINS_USER_TOKEN }
+    response = requests.post(JENKINS_URL, auth=(JENKINS_USER, JENKINS_USER_TOKEN),data = post_data)
+    result = response
+    return render_template('app.html',result=response)
 
 if __name__ == ' __main__':
     app.run(debug=True,host='0.0.0.0')
