@@ -31,17 +31,17 @@
         <label for="github_url">Github URL</label>
         <input type="text" placeholder="Enter Github Url" class="u-full-width" name="github_url"/>
 
+        <label for="github_branch">Github Branch</label>
+        <input type="text" placeholder="Enter Github Branch" class="u-full-width" name="github_branch"/>		
+
         <label for="github_credentials">Github Credentials ID</label>
         <input type="text" placeholder="Enter Github Credentials" class="u-full-width" name="github_credentials"/>
 
         <label for="build_tool">Build Tool</label>
         <select class="u-full-width" name="build_tool">
-          <option value="ant">Ant</option>
-          <option value="maven">Maven</option>
+          <option value="Ant">Ant</option>
+          <option value="Maven">Maven</option>
         </select>
-		
-		<label for="meta_data_file">Provide location of Project Configuration File</label>
-        <input type="text" placeholder="Location of pom.xml or build.xml wrt root" class="u-full-width" name="meta_data_file"/>
 		
         <p><b>Choose Post Build Actions</p></b>
 		<input type="checkbox" id="sonar_scan" name="sonar_scan" value="sonar_scan"><b>Sonar Code Quality Check</b><br>
